@@ -7,7 +7,7 @@ print("Programa para instalação de pacotes que eu acho útil.\nVersão: 1.0\nP
 print("Iniciando instalação de pacotes...\n")
 
 while True:
-    resposta = input("Deseja instalar os drivers da AMD? (S/N): ").strip().lower()
+    resposta = input("Deseja instalar os drivers de qual fabricante? (S/n): ").strip().lower()
     if resposta in ("s", "sim"):
         print("Instalando drivers da AMD...\n")
         os.system("sudo pacman -S --needed --noconfirm mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon")
