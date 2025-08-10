@@ -11,7 +11,7 @@ def bela_saida(sig, frame):
 signal.signal(signal.SIGINT, bela_saida)
 
 # Créditos e aviso
-print("Programa para instalação de pacotes que eu acho útil.\nVersão: 1.3\nPor: NIICKTCHUNS\n\n\033[1;31mOs demais pacotes podem instalar outras dependências consigo.\033[0m")
+print("Programa para instalação de pacotes que eu acho útil.\nVersão: 1.3-T2\nPor: NIICKTCHUNS\n\n\033[1;31mOs demais pacotes podem instalar outras dependências consigo.\033[0m")
 print("Iniciando instalação de pacotes...\n")
 
 # Drivers
@@ -46,13 +46,13 @@ while True:
     pacotes = input("Agora o instalador irá proseguir para a instalação dos demais pacotes (FFmpeg, Gstreamer e etc).\nDeseja continuar? (S/N): ").strip().lower()
     if pacotes in ("s", "sim"):
         print("Iniciando instalação...\n")
-        os.system("sudo pacman -S --noconfirm --needed ffmpeg gst-plugins-ugly gst-plugins-good gst-plugins-base gst-plugins-bad gst-libav gstreamer git fastfetch gufw fwupd ntfs-3g fuse2 fuse2fs svt-av1 flatpak wine-staging wine-gecko lutris steam fish gparted gamemode lib32-gamemode kimageformats mediainfo noise-suppression-for-voice qt6-imageformats system-config-printer mangohud gamescope alsa-utils")
+        os.system("sudo pacman -S --noconfirm --needed linux-headers git wget ffmpeg gst-plugins-ugly gst-plugins-good gst-plugins-base gst-plugins-bad gst-libav gstreamer git fastfetch gufw fwupd ntfs-3g fuse2 fuse2fs svt-av1 flatpak wine-staging wine-gecko lutris steam fish gparted gamemode lib32-gamemode kimageformats mediainfo noise-suppression-for-voice qt6-imageformats system-config-printer mangohud gamescope alsa-utils")
         # Firewall
         while True:
             firewall = input("Deseja configurar o Firewall UFW? (S/N): ").strip().lower()
             if firewall in ("s", "sim"):
                 print("Iniciando configuração do UFW...\n")
-                os.system("sudo ufw enable && sudo ufw allow 1714:1764/udp && sudo ufw allow 1714:1764/tcp && sudo ufw reload")
+                os.system("sudo ufw enable && sudo ufw allow 1714:1764/udp && sudo ufw allow 1714:1764/tcp && sudo ufw allow 12345/tcp && sudo ufw allow 12345/udp && sudo ufw reload")
                 print(f"\n\033[32mFinalizado...\033[0m\n")
                 break
             elif firewall in ("n", "nao", "não"):
@@ -61,6 +61,22 @@ while True:
         break
     elif pacotes in ("n", "nao", "não"):
         print("Cancelado...\n")
+        break
+    else:
+        print("Responda com as opções disponíveis.")
+
+# Paru (AUR)
+while True:
+    paru = input("Deseja instalar o Paru para instalar pacotes do AUR? (S/N): ").strip().lower()
+    if paru in ("s", "sim"):
+        print("Instalando dependências...\n")
+        os.system("sudo pacman -S --noconfirm --needed base-devel")
+        print("Prosseguindo para a instalação do Paru...\n")
+        os.system("cd ~ && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si")
+        print("Finalizado...")
+        break
+    elif paru in ("n", "nao", "não"):
+        print("Pulando...\n")
         break
     else:
         print("Responda com as opções disponíveis.")
