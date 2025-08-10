@@ -7,13 +7,12 @@ import sys
 def bela_saida(sig, frame):
     print("\n\nSaindo...\n")
     sys.exit(0)
-
 signal.signal(signal.SIGINT, bela_saida)
-print("Aperte CTRL+C")
-signal.pause
 
-print("Programa para instalação de pacotes que eu acho útil.\nVersão: 1.2\nPor: NIICKTCHUNS\n\nOs demais pacotes podem trazer outras dependências consigo.")
+print("Programa para instalação de pacotes que eu acho útil.\nVersão: 1.2.1\nPor: NIICKTCHUNS\n\nOs demais pacotes podem trazer outras dependências consigo.")
 print("Iniciando instalação de pacotes...\n")
+
+os.system("sudo pacman -Syu")
 
 while True:
     resposta = input("Deseja instalar os drivers de qual fabricante? AMD, Intel ou Nenhuma (A/I/N): ").strip().lower()
