@@ -7,4 +7,6 @@ Um programa simples que eu fiz apenas para aprender um pouco sobre Python e GitH
 ## Como executar?
 Para executar o programa é bem simples, baixe a versão mais recente [aqui](https://github.com/NIICKTCHUNS/Syupy/releases/latest).
 
-Depois abra o terminal no local em que você baixou o executável e rode com `./Syupy`.
+Depois abra o terminal no local em que você baixou o executável e rode os seguintes comandos:
+`chmod +x Syupy`
+`./Syupy`.
